@@ -5,7 +5,7 @@ A python web scraping application that will keep the values and other details of
 You've invested in LEGO products but costantly have to check online for the current values of each of your sets.
 
 #The Solution
-Automate this process with python! This application will pull use data from brickeconomy.com to keep the current value of your investments up to date so you only have to check one place to evaluate your current position. Simply fill out the 'Set #', 'Purchase Price', and any additional columns you wish in the file 'Brickfolio.csv' and this program will fill in the 'Retail Value' and 'Current Value' columns whenever it is executed.
+Automate this process with python! This application will pull use data from brickeconomy.com to keep the current value of your investments up to date so you only have to check one place to evaluate your current position. Simply fill out the 'Set #', 'Purchase Price', 'Quantity', and any additional columns you wish in the file 'Brickfolio.csv' and this program will fill in the 'Retail Value' and 'Current Value' columns whenever it is executed.
 
 #Usage Instructions (After cloning the repository)
 You can run the script from your machine's terminal or command line by running the following command after navigating into the folder of the cloned project:
