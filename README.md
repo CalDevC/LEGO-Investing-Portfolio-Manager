@@ -9,10 +9,10 @@ Automate this process with python! This application will pull use data from bric
 
 Brickeconomy does offer similar information to their users but I want to have more control over what data I can see and in what format.
 
-#Usage Instructions (After cloning the repository)
+# Usage Instructions (After cloning the repository)
 You can run the script from your machine's terminal or command line by running the following command after navigating into the folder of the cloned project:
 
 python main.py
 
-#Future Work
+# Future Work
 As of 7/28/2021 this project is actively being worked on and improved. The project is in its very early stages and there are plenty of planned featrures including the abilities to add sets by filling out prompts, sort sets by value, display your current ROI, and more. Suggestions are encouraged!
