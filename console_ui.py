@@ -9,7 +9,7 @@ class console_ui:
     def __init__(self):
         pass
 
-    def getMenuSelection(self):
+    def get_menu_selection(self):
         print(self.__menu)
         selection = input("Choose a menu option: ")
         return selection
