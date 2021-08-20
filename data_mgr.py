@@ -26,4 +26,13 @@ class data_mgr:
 
         file_mgr.set_brickfolio(self.columns, self.headers)
 
-    
+    def update_total_invested(self):
+        self.get_current_data()
+
+        for i, set_num in enumerate(self.columns['Set #']):
+            purchase_price = float(self.columns['Purchase Price'][i].strip('$'))
+            quantity = float(self.columns['Qty.'][i])
+
+            self.columns['Total Invested'][i] = purchase_price * quantity * vars.TAX_RATE
+
+        file_mgr.set_brickfolio(self.columns, self.headers)

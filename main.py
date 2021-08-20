@@ -13,6 +13,8 @@ while(True):
     if selection == '1':
         data.get_Prices()
     if selection == '2':
+        data.update_total_invested()
+    if selection == '3':
         new_tax_rate = input("Enter the tax rate for your region: ")
         file_mgr.update_var('TAX_RATE', new_tax_rate)
 

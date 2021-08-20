@@ -1,7 +1,7 @@
 class console_ui:
     __menu = """
              ===== Main Menu =====\n
-             1. Get current values"
+             1. Get current values
              2. Update total invested
              3. Set tax rate
 
