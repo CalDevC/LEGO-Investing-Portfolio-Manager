@@ -11,7 +11,7 @@ while(True):
     if selection.lower() in ['q', 'exit', 'quit', 'done', 'close']:
         exit()
     elif selection == '1':
-        data.get_Prices()
+        data.update_Prices()
     elif selection == '2':
         data.update_total_invested()
     elif selection == '3':
