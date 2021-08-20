@@ -1,17 +1,27 @@
 import scraper
 import file_mgr
+from collections import defaultdict
 import vars
 
-def get_Prices():
-    brickfolio = file_mgr.get_brickfolio()
-    columns = brickfolio['data']
-    headers = brickfolio['headers']
+class data_mgr:
+    
+    def __init__(self):
+        self.columns = defaultdict(list)
+        self.headers = []
 
-    for i, set_num in enumerate(columns['Set #']):
-        url = "https://www.brickeconomy.com/search?query=" + str(set_num)
-        set_info = scraper.get_values(url)
-        columns['Current Val.'][i] = set_info['current value']
-        columns['Retail Price'][i] = set_info['retail value'] #OPTIONAL if you want your retail values filled in
-        print('...')
+    def get_current_data(self):
+        brickfolio = file_mgr.get_brickfolio()
+        self.columns = brickfolio['data']
+        self.headers = brickfolio['headers']
+    
+    def get_Prices(self):
+        self.get_current_data()
 
-    file_mgr.set_brickfolio(columns, headers)
+        for i, set_num in enumerate(self.columns['Set #']):
+            url = "https://www.brickeconomy.com/search?query=" + str(set_num)
+            set_info = scraper.get_values(url)
+            self.columns['Current Val.'][i] = set_info['current value']
+            self.columns['Retail Price'][i] = set_info['retail value'] #OPTIONAL if you want your retail values filled in
+            print('...')
+
+        file_mgr.set_brickfolio(self.columns, self.headers)
