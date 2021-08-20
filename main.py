@@ -10,14 +10,15 @@ while(True):
     selection = ui.get_menu_selection()
     if selection.lower() in ['q', 'exit', 'quit', 'done', 'close']:
         exit()
-    if selection == '1':
+    elif selection == '1':
         data.get_Prices()
-    if selection == '2':
+    elif selection == '2':
         data.update_total_invested()
-    if selection == '3':
+    elif selection == '3':
         new_tax_rate = input("Enter the tax rate for your region: ")
         file_mgr.update_var('TAX_RATE', new_tax_rate)
-
+    else:
+        print("\nInvlaid Selection\n")
 
 
 

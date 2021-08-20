@@ -1,10 +1,13 @@
+import os
+
 class console_ui:
     __menu = """
-             ===== Main Menu =====\n
-             1. Get current values
-             2. Update total invested
-             3. Set tax rate
+             ===== Main Menu =====
 
+             1 - Get current values
+             2 - Update total invested
+             3 - Set tax rate
+             q - Quit
              """
 
     def __init__(self):
