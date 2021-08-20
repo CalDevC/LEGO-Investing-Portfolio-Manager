@@ -26,3 +26,12 @@ def set_brickfolio(columns, headers):
                 row_list.append(columns[header][i])
             writer.writerow(row_list)
             row_list = []
+
+def update_var(var_name, new_value):
+    with open('vars.py', 'r', newline="") as FILE:
+        contents = FILE.readlines()
+        for i, line in enumerate(contents):
+            if var_name in line:
+                contents[i] = f'{str(var_name)} = {new_value}\n'
+        with open('vars.py', 'w') as WRITE_FILE:
+            WRITE_FILE.writelines(contents)

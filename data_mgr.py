@@ -25,3 +25,5 @@ class data_mgr:
             print('...')
 
         file_mgr.set_brickfolio(self.columns, self.headers)
+
+    
