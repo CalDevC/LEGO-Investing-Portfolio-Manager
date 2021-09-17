@@ -15,4 +15,4 @@ You can run the script from your machine's terminal or command line by running t
 python main.py
 
 # Future Work
-As of 8/19/2021 this project is actively being worked on and improved. The project is in its very early stages and there are plenty of planned featrures including the abilities to add sets by filling out prompts, sort sets by value, display your current ROI, and more. Suggestions are encouraged!
+As of Sept 2021 this project is actively being worked on and improved. The project is in its very early stages and there are plenty of planned featrures including the abilities to add sets by filling out prompts, sort sets by value, display your current ROI, and more. Suggestions are encouraged!
