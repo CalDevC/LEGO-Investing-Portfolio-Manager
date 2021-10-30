@@ -26,30 +26,42 @@ sheets_body = {
   ]
 }
 
+#Create Google Sheet
 sheets_file = service.spreadsheets().create(
   body=sheets_body
 ).execute()
 
-# spreadsheet_id = sheets_file['spreadsheetId']
-# worksheet_name = 'Sheet1!'
-# cell_range_insert = 'B2'
+#Sheet info
+spreadsheet_id = sheets_file['spreadsheetId']
+worksheet_name = 'Sheet1!'
+cell_range_insert = 'B2'
 
-# with open('Brickfolio.csv', 'r') as file_obj:
+#Read in data from Brickfolio.csv
+with open('Brickfolio.csv', 'r') as file_obj:
+  row_list = []
 
-#   values = file_obj.read()
-
-#   os.system('clear')
-#   print(values)
-#   print()
+  #Read the values and seperate into rows
+  csv_values = file_obj.read()
+  csv_rows = csv_values.split('\n')
   
-#   value_range_body = {
-#     'majorDimension': 'ROWS',
-#     'values': values
-#   }
+  for row in csv_rows:
+    row_tuple = tuple(row.split(','))
+    row_list.append(row_tuple)
 
-  # service.spreadsheets().values().update(
-  #   spreadsheetId=spreadsheet_id,
-  #   valueInputOption='USER_ENTERED',
-  #   range=worksheet_name + cell_range_insert,
-  #   body=value_range_body
-  # ).execute()
+#Assign values
+values = (
+  tuple(row_list)
+)
+
+value_range_body = {
+  'majorDimension': 'ROWS',
+  'values': values
+}
+
+#Update sheet
+service.spreadsheets().values().update(
+  spreadsheetId=spreadsheet_id,
+  valueInputOption='USER_ENTERED',
+  range=worksheet_name + cell_range_insert,
+  body=value_range_body
+).execute()
