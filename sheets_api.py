@@ -1,6 +1,3 @@
-import os
-
-from gspread.models import Spreadsheet, Worksheet
 from Google import Create_Service
 
 CLIENT_SECRET_FILE = 'client_secret.json'

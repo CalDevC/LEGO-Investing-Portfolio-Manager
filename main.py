@@ -1,4 +1,3 @@
-from gspread.models import Spreadsheet
 import data_mgr
 import console_ui
 import file_mgr

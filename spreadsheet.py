@@ -1,6 +1,3 @@
-import os
-
-from gspread.models import Spreadsheet, Worksheet
 from Google import Create_Service
 
 class Spreadsheet:
@@ -17,7 +14,7 @@ class Spreadsheet:
     #Define spreadsheet body
     sheets_body = {
       'properties': {
-        'title': 'BrickfolioTest',
+        'title': 'myBrickfolio',
         'locale': 'en_US',
         'autoRecalc': 'HOUR'
       }
@@ -34,7 +31,7 @@ class Spreadsheet:
   def updateSheet(self, start_cell):
 
     #Read in data from Brickfolio.csv
-    with open('myBrickfolio.csv', 'r') as file_obj:
+    with open('Brickfolio.csv', 'r') as file_obj:
       row_list = []
 
       #Read the values and seperate into rows
