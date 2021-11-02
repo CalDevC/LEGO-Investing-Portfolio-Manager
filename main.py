@@ -6,9 +6,9 @@ import vars
 
 ui = console_ui.console_ui()
 data = data_mgr.data_mgr()
-sheet_id = '0'
 
 while(True):
+    current_sheet = vars.CURRENT_BRICKFOLIO
     selection = ui.get_menu_selection()
     if selection.lower() in ['q', 'exit', 'quit', 'done', 'close']:
         exit()
@@ -20,9 +20,11 @@ while(True):
         new_tax_rate = input("Enter the tax rate for your region: ")
         file_mgr.update_var('TAX_RATE', new_tax_rate)
     elif selection == '4':
-      spreadsheet = spreadsheet.Spreadsheet()
-      spreadsheet.updateSheet("A1")
-      spreadsheet.fetchSheet()
+          current_sheet = spreadsheet.Spreadsheet()
+          current_sheet.updateSheet("A1")
+    elif selection == '5':
+        current_sheet.fetchSheet()
+        data.update_Prices()
     else:
         print("\nInvlaid Selection\n")
 

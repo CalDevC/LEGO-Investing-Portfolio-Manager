@@ -1,5 +1,5 @@
 from Google import Create_Service
-
+import file_mgr
 
 class Spreadsheet:
 
@@ -26,8 +26,13 @@ class Spreadsheet:
             body=sheets_body
         ).execute()
 
-        # Return Spreadsheet id
-        self.spreadsheet_id = sheets_file['spreadsheetId']
+        print(sheets_file)
+
+        # Save Spreadsheet
+        self.sheet = sheets_file
+        self.id = sheets_file['spreadsheetId']
+        file_mgr.update_var('CURRENT_BRICKFOLIO', sheets_file)
+
 
     def updateSheet(self, start_cell):
         # Read in data from Brickfolio.csv
@@ -54,7 +59,7 @@ class Spreadsheet:
 
         # Update sheet
         self.service.spreadsheets().values().update(
-            spreadsheetId=self.spreadsheet_id,
+            spreadsheetId=self.id,
             valueInputOption='USER_ENTERED',
             range=start_cell,
             body=value_range_body
@@ -62,7 +67,7 @@ class Spreadsheet:
 
     def fetchSheet(self):
         request = self.service.spreadsheets().values().get(
-            spreadsheetId=self.spreadsheet_id,
+            spreadsheetId=self.id,
             range='Sheet1',
             valueRenderOption='FORMATTED_VALUE'
         )

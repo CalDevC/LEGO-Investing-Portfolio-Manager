@@ -7,7 +7,8 @@ class console_ui:
              1 - Get current values
              2 - Update total invested
              3 - Set tax rate
-             4 - Make into Google Sheet
+             4 - Create a new Brickfolio
+             5 - Update Brickfolio values
              q - Quit
              """
 
