@@ -21,7 +21,8 @@ while(True):
         file_mgr.update_var('TAX_RATE', new_tax_rate)
     elif selection == '4':
       spreadsheet = spreadsheet.Spreadsheet()
-      spreadsheet.updateSheet("C3")
+      spreadsheet.updateSheet("A1")
+      spreadsheet.fetchSheet()
     else:
         print("\nInvlaid Selection\n")
 
