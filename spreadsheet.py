@@ -4,7 +4,7 @@ import file_mgr
 class Spreadsheet:
 
     # Returns Google Sheet ID
-    def __init__(self):
+    def __init__(self, sheet=None):
         CLIENT_SECRET_FILE = 'client_secret.json'
         API_NAME = 'sheets'
         API_VERSION = 'v4'
@@ -12,26 +12,27 @@ class Spreadsheet:
 
         self.service = Create_Service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
 
-        # Define spreadsheet body
-        sheets_body = {
-            'properties': {
-                'title': 'myBrickfolio',
-                'locale': 'en_US',
-                'autoRecalc': 'HOUR'
+        if sheet is None:   #If creating a new spreadsheet
+            # Define spreadsheet body
+            sheets_body = {
+                'properties': {
+                    'title': 'myBrickfolio',
+                    'locale': 'en_US',
+                    'autoRecalc': 'HOUR'
+                }
             }
-        }
 
-        # Create spreadsheet  -- dictionary keys: 'spreadsheetId', 'properties', 'sheets', 'spreadsheetUrl'
-        sheets_file = self.service.spreadsheets().create(
-            body=sheets_body
-        ).execute()
-
-        print(sheets_file)
+            # Create spreadsheet  -- dictionary keys: 'spreadsheetId', 'properties', 'sheets', 'spreadsheetUrl'
+            sheets_file = self.service.spreadsheets().create(
+                body=sheets_body
+            ).execute()
+        else:  #If loading a saved spreadsheet set the sheet file equal to it
+            sheets_file = sheet
 
         # Save Spreadsheet
         self.sheet = sheets_file
         self.id = sheets_file['spreadsheetId']
-        file_mgr.update_var('CURRENT_BRICKFOLIO', sheets_file)
+        file_mgr.update_var('CURRENT_SPREADSHEET', sheets_file)
 
 
     def updateSheet(self, start_cell):
